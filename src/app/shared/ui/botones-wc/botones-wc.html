@@ -1,0 +1,114 @@
+<div class="fixed z-50 flex flex-col gap-3"
+     [class.right-4]="position === 'right'"
+     [class.left-4]="position === 'left'"
+     [class.bottom-4]="bottom === '4'"
+     [class.bottom-8]="bottom === '8'"
+     [class.bottom-12]="bottom === '12'">
+
+  <!-- Botón de Chatbot mejorado -->
+  <button 
+    (click)="toggleChat()"
+    class="flex items-center justify-center gap-2 p-3 text-white transition-all duration-300 rounded-full shadow-lg hover:shadow-xl cursor-pointer"
+    [class.p-2]="!showText"
+    [class.p-3]="showText"
+    [style.background]="'linear-gradient(to right, #ba1b1b, #d11d27)'"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+    </svg>
+
+  </button>
+
+  <!-- Botón de WhatsApp mejorado -->
+  <a 
+    [href]="whatsappLink"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center gap-2 p-3 text-white transition-all duration-300 rounded-full shadow-lg hover:shadow-xl"
+    [class.p-2]="!showText"
+    [class.p-3]="showText"
+    [style.background]="'linear-gradient(to right, #25D366, #128C7E)'"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.479 5.092 1.479 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+
+  </a>
+</div>
+
+<!-- Popup del Chat - Versión Final con Iconos -->
+<div *ngIf="isChatOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm transition-all duration-300">
+  <div class="relative w-full max-w-md mx-4 overflow-hidden bg-white rounded-xl shadow-2xl animate-fade-in" 
+       [style.border-top]="'5px solid #ba1b1b'">
+    <!-- Encabezado del Chat -->
+    <div class="flex items-center justify-between p-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+      <div class="flex items-center space-x-3">
+        <div class="p-2.5 rounded-xl bg-[#ba1b1b]/10 shadow-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900">Asistente Virtual</h3>
+          <div class="flex items-center mt-1 space-x-1.5">
+            <span class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></span>
+            <p class="text-xs font-medium text-gray-500">En línea ahora</p>
+          </div>
+        </div>
+      </div>
+      <button (click)="toggleChat()" class="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-all duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Cuerpo del Chat (Mensajes) -->
+    <div class="h-80 p-5 overflow-y-auto bg-gradient-to-b from-gray-50 to-gray-100/50 scroll-smooth">
+      <div *ngFor="let message of messages" class="mb-5 last:mb-0">
+        <div [class.flex-row-reverse]="message.isUser" class="flex items-start gap-3">
+          <div *ngIf="!message.isUser" class="flex-shrink-0 p-1.5 mt-1 rounded-xl bg-[#ba1b1b]/10 shadow-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+          </div>
+          <div [class.bg-[#ba1b1b]]="message.isUser" 
+               [class.text-white]="message.isUser"
+               [class.bg-white]="!message.isUser"
+               [class.text-gray-800]="!message.isUser"
+               [class.rounded-tr-none]="!message.isUser"
+               [class.rounded-tl-none]="message.isUser"
+               class="px-4 py-3 rounded-xl shadow-sm max-w-[85%] border border-gray-200/80 transition-all duration-150">
+            <p class="text-sm leading-relaxed">{{ message.text }}</p>
+            <div class="flex justify-end mt-1">
+              <span class="text-xs opacity-70">{{ message.time | date:'HH:mm' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input para enviar mensajes -->
+    <div class="p-4 border-t border-gray-200 bg-white">
+      <div class="flex gap-3">
+        <input 
+          [(ngModel)]="userMessage" 
+          type="text" 
+          placeholder="Escribe tu mensaje..." 
+          class="flex-1 p-3.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ba1b1b]/30 focus:border-[#ba1b1b] shadow-inner transition-all duration-200"
+          (keyup.enter)="sendMessage()"
+        >
+        <button 
+          (click)="sendMessage()"
+          class="flex items-center justify-center p-3.5 text-white rounded-xl hover:shadow-md transition-all duration-200"
+          [style.background]="'linear-gradient(to right, #ba1b1b, #d11d27)'"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          </svg>
+        </button>
+      </div>
+      <p class="mt-3 text-xs text-center text-gray-400">Presiona Enter para enviar</p>
+    </div>
+  </div>
+</div>

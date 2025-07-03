@@ -1,0 +1,168 @@
+<section id="Inicio" class="relative bg-white overflow-hidden py-12 md:py-16">
+  <!-- Ola decorativa superior -->
+  <div class="absolute top-0 left-0 right-0 overflow-hidden z-0">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="w-full h-12 md:h-16 rotate-180">
+      <defs>
+        <linearGradient id="waveGradientPremiumTop" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ba1b1b" stop-opacity="0.13" />
+          <stop offset="50%" stop-color="#d11d27" stop-opacity="0.10" />
+          <stop offset="100%" stop-color="#ba1b1b" stop-opacity="0.13" />
+        </linearGradient>
+      </defs>
+      <path d="M0,30 C150,60 300,15 450,40 S750,15 900,40 S1150,5 1200,30 V60 H0 Z" fill="url(#waveGradientPremiumTop)" />
+    </svg>
+  </div>
+
+  <!-- Fondo decorativo sutil -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#ba1b1b]/5 to-[#d11d27]/5 blur-[80px]"></div>
+    <div class="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#d11d27]/5 to-[#ba1b1b]/5 blur-[80px]"></div>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+      <!-- Texto y CTA -->
+      <div class="text-center lg:text-left mt-10">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-4 py-2 bg-white text-[#ba1b1b] text-sm font-medium rounded-full shadow-lg border border-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Impresión profesional premium
+          </span>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+          <span class="block">Soluciones que</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ba1b1b] to-[#d11d27]">transforman tu marca</span>
+        </h1>
+        <p class="text-sm md:text-base text-gray-600 mb-6 max-w-xl mx-auto lg:mx-0">
+          Impresión de alta gama y diseño estratégico para campañas impactantes que dejan huella.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+          <button 
+            (click)="toggleContactModal()"
+            class="contact-btn px-6 py-3 bg-gradient-to-r from-[#ba1b1b] to-[#d11d27] text-white font-medium rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+          >
+            <span>Contactar ahora</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </button>
+        </div>
+        <!-- Grid de mini tarjetas de servicios -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto lg:mx-0">
+          <!-- Tarjeta 1 - Vallas -->
+          <div class="service-card group relative bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="p-2 bg-[#ba1b1b]/10 rounded-lg mb-2 w-fit mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="text-xs font-medium text-gray-800 text-center">Vallas</h3>
+          </div>
+          <!-- Tarjeta 2 - Tarjetas -->
+          <div class="service-card group relative bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="p-2 bg-[#ba1b1b]/10 rounded-lg mb-2 w-fit mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+            </div>
+            <h3 class="text-xs font-medium text-gray-800 text-center">Tarjetas</h3>
+          </div>
+          <!-- Tarjeta 3 - Folletos -->
+          <div class="service-card group relative bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="p-2 bg-[#ba1b1b]/10 rounded-lg mb-2 w-fit mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <h3 class="text-xs font-medium text-gray-800 text-center">Folletos</h3>
+          </div>
+          <!-- Tarjeta 4 - Display -->
+          <div class="service-card group relative bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="p-2 bg-[#ba1b1b]/10 rounded-lg mb-2 w-fit mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+              </svg>
+            </div>
+            <h3 class="text-xs font-medium text-gray-800 text-center">Display</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animación de la impresora (más grande) -->
+      <div class="relative hidden lg:flex justify-center">
+        <div class="relative w-[25rem] h-[21rem]">
+          <!-- Fondo difuso -->
+          <div class="absolute top-14 left-14 w-72 h-72 rounded-full bg-[#ba1b1b]/10 blur-2xl"></div>
+          <!-- Cuerpo de la impresora -->
+          <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[22rem] h-48 bg-gray-200 rounded-xl shadow-2xl border border-gray-300">
+            <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-[#ba1b1b] to-[#d11d27] rounded-t-xl"></div>
+            <div class="absolute top-4 left-6 right-6 h-10 bg-gray-100 rounded-lg border border-gray-300 flex items-center justify-between px-4 shadow-inner">
+              <div class="text-sm font-mono text-gray-600 flex items-center">
+                <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+                E&m Pro 
+              </div>
+              <div class="text-sm text-gray-500">300 DPI</div>
+            </div>
+            <div class="absolute top-20 left-6 right-6 flex justify-between text-sm text-gray-500">
+              <span>UV</span>
+              <span>Pantone®</span>
+              <span>Eco-Solvent</span>
+            </div>
+            <div class="absolute top-32 left-6 right-6 h-4 bg-gray-150 rounded-b-lg border-t border-gray-300 shadow-inner"></div>
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-sm font-bold text-gray-700 opacity-70">PMASTER PRO</div>
+          </div>
+          <!-- Bandeja y cabezal animados -->
+          <div class="absolute bottom-48 left-1/2 transform -translate-x-1/2 w-72 h-10 bg-gray-300 rounded-t-xl shadow-lg border-b border-gray-400">
+            <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-36 h-6 bg-gray-800 rounded-sm border border-gray-600 flex items-center justify-center overflow-hidden">
+              <div class="absolute inset-0 bg-gray-900 opacity-70"></div>
+              <div class="relative w-full h-1 bg-[#ba1b1b] opacity-80 animate-pulse"></div>
+              <div class="absolute inset-0 border-t border-b border-gray-600 opacity-30"></div>
+            </div>
+          </div>
+          <div class="absolute bottom-48 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-gray-700 rounded-sm border border-gray-600 animate-movePrintHeadXL shadow-md">
+            <div class="absolute top-1 left-1 right-1 bottom-1 bg-gradient-to-r from-[#ba1b1b] to-[#d11d27] opacity-90 rounded-sm flex items-center justify-center">
+              <div class="w-3/4 h-0.5 bg-white opacity-30 rounded-full"></div>
+            </div>
+            <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-800 rounded-b-full"></div>
+          </div>
+          <!-- Papel animado -->
+          <div class="absolute bottom-36 left-1/2 transform -translate-x-1/2 w-60 h-10 bg-[#ba1b1b] shadow-lg rounded animate-paperOutXL border border-[#9f151c] overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-[#9f151c] bg-opacity-90"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-full h-full bg-[#ba1b1b] opacity-95 flex items-center justify-center">
+                <span class="text-white text-sm font-bold tracking-wider">Eventos & Impresoras</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-36 left-1/2 transform -translate-x-1/2 w-60 h-10 overflow-hidden rounded">
+            <div class="absolute inset-0 bg-white opacity-30 animate-printEffectXL"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ola decorativa inferior -->
+  <div class="absolute bottom-0 left-0 right-0 overflow-hidden z-0">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="w-full h-12 md:h-16">
+      <defs>
+        <linearGradient id="waveGradientPremium" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ba1b1b" stop-opacity="0.1" />
+          <stop offset="50%" stop-color="#d11d27" stop-opacity="0.08" />
+          <stop offset="100%" stop-color="#ba1b1b" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <path d="M0,30 C150,60 300,15 450,40 S750,15 900,40 S1150,5 1200,30 V60 H0 Z" fill="url(#waveGradientPremium)" />
+    </svg>
+  </div>
+</section>
+
+<!-- Modal -->
+<app-contact-modal 
+  *ngIf="showContactModal" 
+  (closeModal)="toggleContactModal()"
+></app-contact-modal>

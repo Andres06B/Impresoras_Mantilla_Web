@@ -1,0 +1,16 @@
+/* faq.component.css */
+/* Animaciones suaves para el acordeón */
+:host {
+  display: block;
+}
+
+.faq-answer {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Mejora la accesibilidad para el enfoque */
+[role="button"]:focus {
+  outline: 2px solid #ba1b1b;
+  outline-offset: 2px;
+}

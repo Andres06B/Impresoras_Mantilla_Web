@@ -1,0 +1,32 @@
+/* Menú móvil: oculto por defecto con max-height y overflow */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+/* Cuando el menú está abierto, se expande con suficiente altura */
+#mobile-menu.open {
+  max-height: 1000px; /* Ajusta según contenido real */
+}
+
+/* Efecto de subrayado animado para enlaces activos */
+a[class*="text-[#9f151c]"] span.relative span {
+  animation: underlineGrow 0.3s ease-out forwards;
+}
+
+@keyframes underlineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Cursor pointer para elementos clickeables */
+header a,
+header button,
+header [onclick] {
+  cursor: pointer;
+}
