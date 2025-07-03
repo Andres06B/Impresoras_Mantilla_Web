@@ -1,80 +1,69 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener} from '@angular/core';
+import { QuoteModal } from '../../ui/quote-modal/quote-modal';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,QuoteModal],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header implements OnInit {
-  
- showQuoteModal: boolean = false;
-  menuOpen: boolean = false;
-  activeSection: string = 'Inicio';
-  sections: string[] = ['Inicio', 'Servicios', 'Galeria', 'Proceso', 'Ubicacion', 'Testimonios'];
+export class Header {
+  menuOpen = false;
+  activeSection = 'Inicio';
+  showQuoteModal = false;
 
-  ngOnInit() {
-    this.checkActiveSection();
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  openQuoteModal(): void {
+    this.showQuoteModal = true;
+    this.menuOpen = false;
+  }
+
+  closeQuoteModal(): void {
+    this.showQuoteModal = false;
+  }
+
+  smoothScroll(targetId: string): void {
+    this.menuOpen = false;
+    const target = document.getElementById(targetId);
+    if (target) {
+      const startPosition = window.pageYOffset;
+      const targetPosition = target.getBoundingClientRect().top + startPosition - 80;
+      const distance = targetPosition - startPosition;
+      const duration = 800;
+      let startTime: number | null = null;
+
+      const animation = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        window.scrollTo(0, startPosition + distance * progress);
+        if (timeElapsed < duration) window.requestAnimationFrame(animation);
+      };
+
+      window.requestAnimationFrame(animation);
+    }
   }
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    this.checkActiveSection();
-  }
+    const sections = ['Inicio', 'Servicios', 'Galeria', 'Proceso', 'Ubicacion', 'Testimonios'];
+    const scrollPosition = window.pageYOffset + 150;
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-
-  openQuoteModal() {
-    this.showQuoteModal = true;
-    this.menuOpen = false; // cerrar menú al abrir modal
-    document.body.style.overflow = 'hidden';  // bloquear scroll al abrir modal
-  }
-
-  closeQuoteModal() {
-    this.showQuoteModal = false;
-    document.body.style.overflow = 'auto';  // desbloquear scroll al cerrar modal
-  }
-
-  smoothScroll(sectionId: string) {
-    this.menuOpen = false;
-    this.activeSection = sectionId;
-
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = document.querySelector('header')?.clientHeight || 0;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerHeight - 20;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  }
-
-  checkActiveSection() {
-    const scrollPosition = window.pageYOffset;
-    const headerHeight = document.querySelector('header')?.clientHeight || 0;
-
-    for (const section of this.sections) {
+    for (const section of sections) {
       const element = document.getElementById(section);
       if (element) {
-        const elementOffset = element.offsetTop;
-        const elementHeight = element.clientHeight;
-
-        if (
-          scrollPosition >= elementOffset - headerHeight - 50 &&
-          scrollPosition < elementOffset + elementHeight - headerHeight - 50
-        ) {
+        const offsetTop = element.offsetTop;
+        const offsetHeight = element.offsetHeight;
+        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
           this.activeSection = section;
           break;
         }
       }
     }
   }
- 
 }

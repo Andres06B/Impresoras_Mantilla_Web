@@ -1,13 +1,7 @@
-/* Menú móvil: oculto por defecto con max-height y overflow */
+/* Estilos para el menú móvil */
 #mobile-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-}
-
-/* Cuando el menú está abierto, se expande con suficiente altura */
-#mobile-menu.open {
-  max-height: 1000px; /* Ajusta según contenido real */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  will-change: opacity, visibility;
 }
 
 /* Efecto de subrayado animado para enlaces activos */
@@ -24,9 +18,50 @@ a[class*="text-[#9f151c]"] span.relative span {
   }
 }
 
-/* Cursor pointer para elementos clickeables */
-header a,
-header button,
-header [onclick] {
-  cursor: pointer;
+/* Mejoras para dispositivos móviles */
+@media (max-width: 1023px) {
+  /* Asegurar que el menú esté por encima de otros elementos */
+  header {
+    z-index: 50;
+  }
+  
+  #mobile-menu {
+    z-index: 40;
+    top: 80px; /* Ajusta según la altura de tu header */
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Mejorar la legibilidad en móviles */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Prevenir problemas de scroll en iOS */
+  @supports (-webkit-touch-callout: none) {
+    body.menu-open {
+      position: fixed;
+      width: 100%;
+    }
+  }
+}
+
+/* Prevenir flash de contenido no estilizado */
+:host {
+  display: block;
+}
+
+/* Mejorar accesibilidad para elementos interactivos */
+[role="button"], button, a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Asegurar que los enlaces del menú móvil sean fácilmente clickeables */
+#mobile-menu a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
 }
