@@ -11,61 +11,54 @@ export class BotonesWc implements OnInit {
   @Input() position: 'right' | 'left' = 'right';
   @Input() bottom: '4' | '8' | '12' = '8';
   @Input() showText: boolean = false;
-  @Input() phoneNumber: string = '573014374606'; // Número de WhatsApp por defecto
+  @Input() phoneNumber: string = '573014374606';
   @Input() defaultMessage: string = 'Hola, estoy interesado en sus servicios de impresión';
-  @Input() companyName: string = 'Impresoras Mantilla'; // Nombre de la empresa configurable
+  @Input() companyName: string = 'Impresoras Mantilla';
 
   isChatOpen: boolean = false;
   userMessage: string = '';
-  messages: { text: string; isUser: boolean; time?: Date }[] = []; // Añadido campo time
+  messages: { text: string; isUser: boolean; time?: Date }[] = [];
   whatsappLink: string = '';
 
   ngOnInit() {
-    // Configurar el enlace de WhatsApp
     const encodedMessage = encodeURIComponent(this.defaultMessage);
     this.whatsappLink = `https://wa.me/${this.phoneNumber}?text=${encodedMessage}`;
     
-    // Mensaje inicial del bot si el chat está abierto al cargar
     if (this.isChatOpen) {
-      this.showWelcomeMessages();
+      this.showWelcomeMessage();
     }
   }
 
   toggleChat() {
     this.isChatOpen = !this.isChatOpen;
     
-    // Si se abre el chat, mostrar mensajes de bienvenida si no hay mensajes
     if (this.isChatOpen && this.messages.length === 0) {
-      setTimeout(() => {
-        this.showWelcomeMessages();
-      }, 300);
+      this.showWelcomeMessage();
     }
   }
 
-  private showWelcomeMessages() {
-    this.addBotMessage(`¡Hola! Soy el asistente virtual de ${this.companyName}. ¿En qué puedo ayudarte hoy?`);
-    this.addBotMessage('Puedes preguntarme sobre nuestros servicios: vallas publicitarias, tarjetas premium, folletos, displays y más.');
+  private showWelcomeMessage() {
+    this.addBotMessage(`¡Hola! Soy el asistente de ${this.companyName}.`);
+    this.addBotMessage('¿En qué puedo ayudarte hoy? Puedes preguntarme sobre:');
+    this.addBotMessage('- Vallas publicitarias\n- Tarjetas de presentación\n- Folletos\n- Precios\n- Contacto');
   }
 
   sendMessage() {
-    if (this.userMessage.trim() === '') return;
+    if (!this.userMessage.trim()) return;
 
-    // Agregar mensaje del usuario con marca de tiempo
-    this.addUserMessage(this.userMessage);
-    
-    // Procesar respuesta del bot (simulado)
-    setTimeout(() => {
-      this.processUserMessage(this.userMessage);
-    }, 500);
-    
+    const userText = this.userMessage;
+    this.addUserMessage(userText);
     this.userMessage = '';
+    
+    // Respuesta inmediata sin delay
+    this.processUserMessage(userText);
   }
 
   addUserMessage(text: string) {
     this.messages.push({ 
       text, 
       isUser: true,
-      time: new Date() // Añadir marca de tiempo
+      time: new Date()
     });
     this.scrollToBottom();
   }
@@ -74,7 +67,7 @@ export class BotonesWc implements OnInit {
     this.messages.push({ 
       text, 
       isUser: false,
-      time: new Date() // Añadir marca de tiempo
+      time: new Date()
     });
     this.scrollToBottom();
   }
@@ -85,45 +78,52 @@ export class BotonesWc implements OnInit {
       if (chatContainer) {
         chatContainer.scrollTop = chatContainer.scrollHeight;
       }
-    }, 100);
+    }, 50);
   }
 
   private processUserMessage(message: string) {
     const lowerMessage = message.toLowerCase();
     
-    if (lowerMessage.includes('hola') || lowerMessage.includes('buenos días') || lowerMessage.includes('buenas tardes')) {
-      this.addBotMessage('¡Hola! ¿En qué puedo ayudarte hoy?');
-    } 
-    else if (lowerMessage.includes('servicio') || lowerMessage.includes('producto') || lowerMessage.includes('ofrecen')) {
-      this.addBotMessage('Ofrecemos servicios de impresión profesional: vallas publicitarias, tarjetas de presentación premium, folletos, displays y material promocional de alta calidad.');
+    // Respuestas rápidas y concretas
+    if (this.containsAny(lowerMessage, ['hola', 'buenos días', 'buenas tardes'])) {
+      this.addBotMessage('¡Hola! ¿En qué necesitas ayuda?');
     }
-    else if (lowerMessage.includes('valla') || lowerMessage.includes('publicitaria')) {
-      this.addBotMessage('Nuestras vallas publicitarias son de gran formato con materiales resistentes a la intemperie. Tiempo de producción: 24-48 horas.');
+    else if (this.containsAny(lowerMessage, ['valla', 'publicidad', 'publicitaria'])) {
+      this.addBotMessage('Ofrecemos vallas publicitarias de alta calidad. ¿Te interesa para interior o exterior?');
     }
-    else if (lowerMessage.includes('tarjeta') || lowerMessage.includes('presentación')) {
-      this.addBotMessage('Tarjetas de presentación con acabados premium: relieve, troquelado, foil stamping. Desde 24h de producción.');
+    else if (this.containsAny(lowerMessage, ['interior'])) {
+      this.addBotMessage('Las vallas para interior son ideales para eventos y espacios cerrados. ¿Qué dimensiones necesitas o tienes alguna idea en mente?');
     }
-    else if (lowerMessage.includes('folio') || lowerMessage.includes('catálogo') || lowerMessage.includes('promocional')) {
-      this.addBotMessage('Folletos y catálogos con diseños impactantes y diferentes acabados. Producción rápida y calidad profesional.');
+    else if (this.containsAny(lowerMessage, ['exterior'])) {
+      this.addBotMessage('Las vallas para exterior están hechas con materiales resistentes al clima. ¿Dónde planeas instalarla o qué tamaño buscas?');
     }
-    else if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('cuánto')) {
-      this.addBotMessage('Los precios varían según el producto, cantidad y especificaciones. ¿Podrías decirme qué producto te interesa para darte una cotización más precisa?');
+    else if (this.containsAny(lowerMessage, ['tarjeta', 'presentación', 'visita'])) {
+      this.addBotMessage('Tenemos tarjetas de presentación desde 100 unidades. ¿Qué tipo de acabado necesitas?');
     }
-    else if (lowerMessage.includes('contacto') || lowerMessage.includes('ubicación') || lowerMessage.includes('dirección')) {
-      this.addBotMessage(`Puedes contactarnos por WhatsApp al +${this.phoneNumber} o visitarnos en nuestra ubicación principal. ¿Necesitas ayuda con algo más?`);
+    else if (this.containsAny(lowerMessage, ['folleto', 'catálogo', 'volante'])) {
+      this.addBotMessage('Folletos desde 50 unidades. ¿Tamaño estándar o personalizado?');
     }
-    else if (lowerMessage.includes('gracias') || lowerMessage.includes('agradezco')) {
-      this.addBotMessage('¡De nada! Estamos para servirte. ¿Hay algo más en lo que pueda ayudarte?');
+    else if (this.containsAny(lowerMessage, ['precio', 'costo', 'cotización', 'cuánto'])) {
+      this.addBotMessage('Los precios varían según cantidad y materiales. ¿Qué producto necesitas?');
     }
-    else if (lowerMessage.includes('whatsapp') || lowerMessage.includes('hablar con alguien')) {
-      this.addBotMessage(`Perfecto, puedes contactar directamente a nuestro equipo de ventas por WhatsApp: +${this.phoneNumber}`);
-      setTimeout(() => {
-        window.open(this.whatsappLink, '_blank');
-      }, 1000);
+    else if (this.containsAny(lowerMessage, ['contacto', 'ubicación', 'dirección', 'teléfono'])) {
+      this.addBotMessage(`Puedes contactarnos al WhatsApp: +${this.phoneNumber} o visitarnos en nuestro local.`);
+    }
+    else if (this.containsAny(lowerMessage, ['gracias', 'agradezco'])) {
+      this.addBotMessage('¡De nada! ¿Necesitas algo más?');
+    }
+    else if (this.containsAny(lowerMessage, ['whatsapp', 'hablar', 'asesor'])) {
+      this.addBotMessage(`Perfecto, contáctanos por WhatsApp: +${this.phoneNumber}`);
+      setTimeout(() => window.open(this.whatsappLink, '_blank'), 500);
     }
     else {
-      this.addBotMessage('¿Podrías ser más específico con tu consulta? O si prefieres, puedes contactar directamente a nuestro equipo de ventas por WhatsApp.');
-      this.addBotMessage('También puedo ayudarte con información sobre: servicios, productos, precios o contacto.');
+      this.addBotMessage('No entendí tu consulta. ¿Puedes ser más específico?');
+      this.addBotMessage('Pregúntame sobre: productos, precios o contacto.');
     }
+  }
+
+  // Función auxiliar para simplificar las comparaciones
+  private containsAny(text: string, words: string[]): boolean {
+    return words.some(word => text.includes(word));
   }
 }

@@ -1,0 +1,16 @@
+/* Activa cursor pointer en todas las cards de la galería */
+#Galeria .group {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Opcional: Refuerza el efecto hover */
+#Galeria .group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Para los elementos internos que también deben mostrar pointer */
+#Galeria .group * {
+  cursor: pointer;
+}

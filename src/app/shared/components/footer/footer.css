@@ -1,0 +1,31 @@
+/* Activar cursor pointer en todos los elementos clickeables */
+.footer-interactive {
+  cursor: pointer;
+}
+
+/* Para las tarjetas de información (Contacto y Horario) */
+.bg-white\\/5:hover, 
+.border-white\\/10:hover {
+  cursor: pointer;
+}
+
+/* Para los botones de redes sociales */
+.flex.items-center.justify-center.hover\\:bg-white\\/10:hover {
+  cursor: pointer;
+}
+
+/* Para los elementos de horario */
+.flex.justify-between.items-center.bg-white\\/5:hover {
+  cursor: pointer;
+}
+
+/* Si prefieres una solución más general con clases */
+.footer-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footer-clickable:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
