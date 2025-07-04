@@ -7,7 +7,7 @@ import { BotonesWc } from '../../shared/ui/botones-wc/botones-wc';
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet,Header,Footer, ],
+  imports: [RouterOutlet,Header,Footer,BotonesWc ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css'
 })

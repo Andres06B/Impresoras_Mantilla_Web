@@ -2,142 +2,143 @@
   <!-- Fondo decorativo sutil -->
   <div class="absolute inset-0 z-0 overflow-hidden">
     <div class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNiYTFiMWIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aDEydjEySDM2VjM0em0tMjQgMjRoMTJ2MTJIMTJWMjR6bTAtMjRoMTJ2MTJIMTJWMHptMjQgMGgxMnYxMkgzNlYweiIvPjwvZz48L2c+PC9zdmc+')]"></div>
-    <div class="absolute top-0 right-0 w-24 h-24 bg-[#ba1b1b] rounded-full opacity-5 blur-xl transform translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#d11d27] rounded-full opacity-5 blur-xl transform -translate-x-1/2 translate-y-1/2"></div>
   </div>
 
-  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Encabezado compacto -->
-    <div class="text-center mb-10 lg:mb-14 max-w-3xl mx-auto">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ba1b1b] to-[#d11d27]">Visítanos</span> en nuestro taller
+    <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+      <span class="inline-flex items-center px-3 py-1 bg-white text-[#ba1b1b] text-xs font-medium rounded-full shadow-sm border border-gray-200 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        UBICACIÓN
+      </span>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight">
+        <span class="block">Visítanos en nuestro</span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ba1b1b] to-[#d11d27]">Taller</span>
       </h2>
-      <p class="text-lg text-gray-600">
+      <p class="text-sm md:text-base text-gray-600">
         Estamos ubicados en una zona con conexión a la estación Los Ejecutivos, para atenderte con la mejor calidad y servicio personalizado.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-      <!-- Tarjeta de información -->
-      <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-shadow hover:shadow-2xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+      <!-- Tarjeta de información - Ahora con altura fija -->
+      <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden h-full flex flex-col">
         <!-- Encabezado de la tarjeta -->
-        <div class="bg-gradient-to-r from-[#ba1b1b] to-[#d11d27] px-6 py-5">
-          <h3 class="text-xl font-bold text-white flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-gradient-to-r from-[#ba1b1b] to-[#d11d27] px-5 py-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
-            Detalles sobre nuestra ubicación
+            Detalles de ubicación
           </h3>
         </div>
 
         <!-- Cuerpo de la tarjeta -->
-        <div class="p-6 lg:p-8 space-y-8">
+        <div class="p-5 space-y-6 flex-grow">
           <!-- Dirección -->
-          <div class="flex items-start gap-4">
-            <div class="bg-[#fef2f2] p-3 rounded-lg flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="flex items-start gap-3">
+            <div class="bg-[#fef2f2] p-2 rounded-lg flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
               </svg>
             </div>
             <div>
               <h4 class="font-semibold text-gray-800 mb-1">Dirección</h4>
-              <p class="text-gray-600">Las gaviotas mz 65 lote 2 etapa 1</p>
-              <p class="text-gray-600">Barrio las gaviotas</p>
-              <p class="text-gray-600">Cartagena de indias, Colombia</p>
-              <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.342689325584!2d-75.4896764!3d10.3992109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef6255a5fb07565%3A0x47ccbfb38a80f6f7!2sLas%20gaviotas%20Mza%2026%20Etapa%202%2C%20La%20Floresta%2C%20Cartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1718382341236!5m2!1ses!2sco" target="_blank" class="text-[#ba1b1b] font-medium hover:underline inline-block mt-2">Ver en mapa →</a>
+              <p class="text-gray-600 text-sm">Las gaviotas mz 65 lote 2 etapa 1</p>
+              <p class="text-gray-600 text-sm">Barrio las gaviotas, Cartagena de indias</p>
+              <a href="https://maps.google.com" target="_blank" class="text-[#ba1b1b] text-sm font-medium hover:underline inline-block mt-1">Ver en mapa →</a>
             </div>
           </div>
 
           <!-- Horarios -->
-          <div class="flex items-start gap-4">
-            <div class="bg-[#fef2f2] p-3 rounded-lg flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="flex items-start gap-3">
+            <div class="bg-[#fef2f2] p-2 rounded-lg flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-800 mb-1">Horario de Atención</h4>
-              <div class="grid grid-cols-2 gap-2 text-gray-600">
+              <h4 class="font-semibold text-gray-800 mb-1">Horario</h4>
+              <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-gray-600">
                 <div>Lunes a Viernes:</div>
-                <div class="font-medium text-gray-800">8:00 Am - 6:00 Pm</div>
+                <div class="font-medium">8:00 AM - 6:00 PM</div>
                 <div>Sábados:</div>
-                <div class="font-medium text-gray-800">8:00 Am - 6:00 Pm</div>
+                <div class="font-medium">8:00 AM - 6:00 PM</div>
                 <div>Domingos:</div>
-                <div class="font-medium text-gray-800">8:00 Am - 6:00 Pm</div>
+                <div class="font-medium">8:00 AM - 6:00 PM</div>
               </div>
             </div>
           </div>
 
           <!-- Contacto -->
-          <div class="flex items-start gap-4">
-            <div class="bg-[#fef2f2] p-3 rounded-lg flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="flex items-start gap-3">
+            <div class="bg-[#fef2f2] p-2 rounded-lg flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-800 mb-1">Contacto Directo</h4>
-              <p class="text-gray-600 mb-1">Tel: +57 3014374606</p>
-              <p class="text-gray-600">Email: imprentegrafica91&#64;gmail.com</p>
+              <h4 class="font-semibold text-gray-800 mb-1">Contacto</h4>
+              <p class="text-gray-600 text-sm">Tel: +57 3014374606</p>
+              <p class="text-gray-600 text-sm">Email: imprentegrafica91&#64;gmail.com</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Mapa interactivo -->
-      <div class="rounded-2xl shadow-xl border border-gray-200 overflow-hidden h-80 lg:h-full">
+      <!-- Mapa interactivo - Misma altura que la tarjeta -->
+      <div class="rounded-xl shadow-md border border-gray-200 overflow-hidden h-full min-h-[400px]">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.342689325584!2d-75.4896764!3d10.3992109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef6255a5fb07565%3A0x47ccbfb38a80f6f7!2sLas%20gaviotas%20Mza%2026%20Etapa%202%2C%20La%20Floresta%2C%20Cartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1718382341236!5m2!1ses!2sco" 
           width="100%" 
           height="100%" 
           style="border:0;" 
-          allowfullscreen="" 
+          allowfullscreen 
           loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
           class="bg-gray-100"
         ></iframe>
       </div>
     </div>
 
-    <!-- Indicadores adicionales -->
-    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Estacionamiento -->
-      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex items-start gap-4">
-        <div class="bg-[#fef2f2] p-3 rounded-lg flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <!-- Indicadores en una sola fila -->
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm flex items-start gap-3">
+        <div class="bg-[#fef2f2] p-2 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
           </svg>
         </div>
         <div>
-          <h4 class="font-semibold text-gray-800 mb-1">Estacionamiento</h4>
-          <p class="text-gray-600">Es una calle transitada en barrio residencial, por lo que el estacionamiento es limitado.</p>
+          <h4 class="font-semibold text-gray-800 text-sm mb-1">Estacionamiento</h4>
+          <p class="text-gray-600 text-xs">Calle residencial con estacionamiento limitado</p>
         </div>
       </div>
-
-      <!-- Accesibilidad -->
-      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex items-start gap-4">
-        <div class="bg-[#fef2f2] p-3 rounded-lg flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      
+      <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm flex items-start gap-3">
+        <div class="bg-[#fef2f2] p-2 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
           </svg>
         </div>
         <div>
-          <h4 class="font-semibold text-gray-800 mb-1">Accesibilidad</h4>
-          <p class="text-gray-600">Instalaciones adaptadas para todo tipo de persona.</p>
+          <h4 class="font-semibold text-gray-800 text-sm mb-1">Accesibilidad</h4>
+          <p class="text-gray-600 text-xs">Instalaciones adaptadas para todos</p>
         </div>
       </div>
-
-      <!-- Transporte -->
-      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex items-start gap-4">
-        <div class="bg-[#fef2f2] p-3 rounded-lg flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      
+      <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm flex items-start gap-3">
+        <div class="bg-[#fef2f2] p-2 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ba1b1b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
           </svg>
         </div>
         <div>
-          <h4 class="font-semibold text-gray-800 mb-1">Transporte Público</h4>
-          <p class="text-gray-600">Fácil acceso mediante las vías y este permite el tránsito de carros y motos particulares.</p>
+          <h4 class="font-semibold text-gray-800 text-sm mb-1">Transporte</h4>
+          <p class="text-gray-600 text-xs">Fácil acceso por vías principales</p>
         </div>
       </div>
     </div>
@@ -145,8 +146,15 @@
 
   <!-- Ola decorativa inferior -->
   <div class="absolute bottom-0 left-0 right-0 overflow-hidden z-0">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16 md:h-20 lg:h-24">
-      <path d="M0,80 Q300,120 600,80 T1200,80 V120 H0 Z" fill="#ba1b1b" opacity="0.05"/>
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" class="w-full h-20 md:h-24">
+      <defs>
+        <linearGradient id="waveGradientPremium" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#ba1b1b" stop-opacity="0.1" />
+          <stop offset="50%" stop-color="#d11d27" stop-opacity="0.08" />
+          <stop offset="100%" stop-color="#ba1b1b" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <path d="M0,40 C150,80 300,20 450,60 S750,20 900,60 S1150,10 1200,40 V80 H0 Z" fill="url(#waveGradientPremium)" />
     </svg>
   </div>
 </section>

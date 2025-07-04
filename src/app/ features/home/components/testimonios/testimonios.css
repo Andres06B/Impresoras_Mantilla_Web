@@ -1,0 +1,17 @@
+/* Estilo para el cursor de puntero en las cards */
+.testimonial-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* O si prefieres seleccionar directamente la clase de tus cards */
+.bg-white.rounded-2xl.shadow-lg {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para feedback visual */
+.bg-white.rounded-2xl.shadow-lg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}

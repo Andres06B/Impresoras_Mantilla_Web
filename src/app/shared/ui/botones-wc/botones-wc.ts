@@ -11,7 +11,7 @@ export class BotonesWc implements OnInit {
   @Input() position: 'right' | 'left' = 'right';
   @Input() bottom: '4' | '8' | '12' = '8';
   @Input() showText: boolean = false;
-  @Input() phoneNumber: string = '+57 3105037669'; // Número de WhatsApp por defecto
+  @Input() phoneNumber: string = '573014374606'; // Número de WhatsApp por defecto
   @Input() defaultMessage: string = 'Hola, estoy interesado en sus servicios de impresión';
   @Input() companyName: string = 'Impresoras Mantilla'; // Nombre de la empresa configurable
 
