@@ -15,6 +15,27 @@ export const routes: Routes = [
                 loadComponent: () =>
                     import('./ features/home/home').then(m => m.Home)
             },
+
+            //Rutas de las tarjetas de servicios
+            {
+                // Ruta para el componente Impresoras
+                path: 'impresoras',
+                loadComponent: () =>
+                    import('./products/service-impresion/service-impresion').then(m => m.ServiceImpresion)
+            }
+            ,
+            {
+                // Ruta para el componente Diseño
+                path: 'diseno',
+                loadComponent: () =>
+                    import('./products/service-diseno/service-diseno').then(m => m.ServiceDiseno)
+            },
+            {
+                // Ruta para el componente Marketing Digital
+                path: 'marketing-digital',
+                loadComponent: () =>
+                    import('./products/service-redes/service-redes').then(m => m.ServiceRedes)
+            }
         ]
     },
     {   // Ruta para el componente de error 404

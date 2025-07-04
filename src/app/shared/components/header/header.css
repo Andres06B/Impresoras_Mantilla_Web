@@ -65,3 +65,12 @@ a[class*="text-[#9f151c]"] span.relative span {
   display: flex;
   align-items: center;
 }
+/* En tu archivo CSS global */
+a {
+  cursor: pointer;
+}
+
+/* O más específico para los que tienen eventos click */
+[onclick], [click], [routerLink] {
+  cursor: pointer;
+}
