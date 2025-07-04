@@ -1,0 +1,9 @@
+.service-card {
+  cursor: pointer;
+}
+
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(186, 27, 27, 0.15);
+}

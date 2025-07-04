@@ -8,11 +8,12 @@ import { Ubicacion } from './components/ubicacion/ubicacion';
 import { Testimonios } from './components/testimonios/testimonios';
 import { Faq } from './components/faq/faq';
 import { BotonesWc } from '../../shared/ui/botones-wc/botones-wc';
+import { CtaFinal } from './components/cta-final/cta-final';
 
 @Component({
   selector: 'app-home',
   imports: [
-    Hero,Serviciosw,Galeria,Proceso,Redes,Ubicacion,Testimonios,Faq
+    Hero,Serviciosw,Galeria,Proceso,Redes,Ubicacion,Testimonios,Faq,CtaFinal
   ],
   templateUrl: './home.html',
   styleUrl: './home.css'
